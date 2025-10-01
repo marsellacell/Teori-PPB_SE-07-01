@@ -43,4 +43,103 @@ void main() {
   // dynamic name;
   // dynamic nim;
   // dynamic suggestion;
+
+  // Type 1: weakly typed => value menentukan type data
+  dynamic number = [
+    1,
+    2,
+    3,
+    true,
+    "hallo",
+    ["coding", "reading"],
+  ];
+  print(number);
+  print(number.runtimeType);
+
+  //type 2: strongly typed => type data menentukan value
+  // List<string> number2 = [1, 2, 3, 4, 5.5, true];
+  List<bool> isLoadings = [false, false, false, true];
+  bool isLoading = false;
+  bool isLoadingError = false;
+  bool isLoadingProses = false;
+  bool isLoadingDataA = false;
+
+  //[1,2,3, true, "halo", ["coding", "reading"]] ? bagaimana saya membuat variabel ini?
+
+  List<dynamic> data = [
+    1,
+    2,
+    3,
+    true,
+    "hallo",
+    ["coding", "reading"],
+  ];
+
+  //print(hobi kedua saya adalah $data[5][1]); // salah
+  print("hobi kedua saya adalah ${data[5][1]}"); //benar untuk interpolasi
+
+  //1: weak map
+  var todo = {
+    "userId": 1,
+    "id": 1,
+    "title": "delectus aut autem",
+    "is_completed": false,
+  };
+
+  print(todo);
+  print(todo.runtimeType);
+
+  //Map<keyTypeData, valueTypeData> var = {Value};
+  Map<String, dynamic> todo2 = {
+    "userId": 1,
+    "id": 1,
+    "title": "delectus aut autem",
+    "is_completed": false,
+  };
+
+  List<Map<String, dynamic>> todos = [
+    {
+      "userId": 1,
+      "id": 1,
+      "title": "delectus aut autem",
+      "is_completed": false,
+    },
+    {
+      "userId": 1,
+      "id": 2,
+      "title": "quis ut nam facilis et officia qui",
+      "is_completed": false,
+    },
+    {
+      "userId": 1,
+      "id": 3,
+      "title": "fugiat veniam minus",
+      "is_completed": false,
+    },
+    {"userId": 1, "id": 4, "title": "et porro tempora", "is_completed": true},
+    {
+      "userId": 1,
+      "id": 5,
+      "title":
+          "laboriosam mollitia et enim quasi adipisci quia provident illum",
+      "is_completed": false,
+    },
+  ];
+  print(todos[2]["title"]); //manggil data ke 3, title
+
+  bool statusLulus;
+  int nilai = 70;
+
+  if (nilai > 75) {
+    statusLulus = "Selamat Anda Lulus" as bool;
+  } else {
+    statusLulus = "Maaf Anda Tidak Lulus" as bool;
+  }
+
+  print(statusLulus);
+
+  //tenary operator atau conditional expression
+  statusLulus =
+      ((nilai > 75) ? "Selamat Anda Lulus" : "Maaf Anda Tidak Lulus") as bool;
+  print(statusLulus);
 }
